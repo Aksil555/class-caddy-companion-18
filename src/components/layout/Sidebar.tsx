@@ -30,11 +30,26 @@ const Sidebar: React.FC = () => {
       <SidebarHeader className="flex items-center justify-between px-4 py-6">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-md bg-blue-500 flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/f39546c5-fcde-4a50-8808-cabcf60d661e.png" 
-              alt="AksilFlow Logo" 
-              className="w-6 h-6"
-            />
+            {/* Custom SVG logo instead of image */}
+            <svg 
+              viewBox="0 0 24 24" 
+              className="w-6 h-6 text-white" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" 
+                fill="white" 
+                stroke="white" 
+                strokeWidth="1"
+              />
+              <path 
+                d="M12 8L8 10.5V15.5L12 18L16 15.5V10.5L12 8Z" 
+                fill="#3B82F6" 
+                stroke="#3B82F6" 
+                strokeWidth="0.5"
+              />
+            </svg>
           </div>
           <span className="text-xl font-semibold">AksilFlow</span>
         </div>
