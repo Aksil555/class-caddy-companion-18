@@ -10,12 +10,16 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarGroup
+  SidebarGroup,
+  SidebarRail,
+  useSidebar
 } from '@/components/ui/sidebar';
-import { Calendar, Book, CheckSquare, Home, PenSquare } from 'lucide-react';
+import { Calendar, Book, CheckSquare, Home, PenSquare, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
+  const { state } = useSidebar();
   
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -25,10 +29,14 @@ const Sidebar: React.FC = () => {
     <SidebarComponent>
       <SidebarHeader className="flex items-center justify-between px-4 py-6">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-            <Book className="w-5 h-5 text-primary-foreground" />
+          <div className="w-8 h-8 rounded-md bg-blue-500 flex items-center justify-center">
+            <img 
+              src="/lovable-uploads/f39546c5-fcde-4a50-8808-cabcf60d661e.png" 
+              alt="AksilFlow Logo" 
+              className="w-6 h-6"
+            />
           </div>
-          <span className="text-xl font-semibold">StudyMate</span>
+          <span className="text-xl font-semibold">AksilFlow</span>
         </div>
         <SidebarTrigger />
       </SidebarHeader>
@@ -88,8 +96,30 @@ const Sidebar: React.FC = () => {
       </SidebarContent>
       
       <SidebarFooter className="px-4 py-4 text-center text-xs text-muted-foreground">
-        <p>© 2023 StudyMate</p>
+        <p>© 2025 AksilFlow</p>
       </SidebarFooter>
+
+      {/* Add a rail for easier toggling */}
+      <SidebarRail />
+
+      {/* Add expand button when sidebar is collapsed */}
+      {state === "collapsed" && (
+        <div className="fixed left-0 top-1/2 transform -translate-y-1/2 z-20">
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="rounded-full rounded-l-none border-l-0 shadow-md"
+            onClick={() => {
+              const toggleButton = document.querySelector('[data-sidebar="trigger"]');
+              if (toggleButton) {
+                (toggleButton as HTMLButtonElement).click();
+              }
+            }}
+          >
+            <ArrowRight className="h-4 w-4" />
+          </Button>
+        </div>
+      )}
     </SidebarComponent>
   );
 };
