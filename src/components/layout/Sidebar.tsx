@@ -26,12 +26,12 @@ const Sidebar: React.FC = () => {
 
   return (
     <>
-      {/* Add expand button that shows only when sidebar is collapsed */}
+      {/* Add expand button at the bottom when sidebar is collapsed */}
       {state === "collapsed" && (
         <Button
           variant="outline"
           size="icon"
-          className="fixed left-4 top-4 z-20 md:flex hidden"
+          className="fixed left-4 bottom-4 z-20 md:flex hidden"
           onClick={toggleSidebar}
         >
           <ChevronRight className="h-4 w-4" />
