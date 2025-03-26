@@ -1,127 +1,143 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+ 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
+ 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 220 70% 50%;
+ 
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
-
+ 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
+ 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 220 70% 94%;
+ 
+    --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
+ 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 220 70% 50%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 70% 40%;
-    --sidebar-primary: 220 70% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 70% 96%;
-    --sidebar-accent-foreground: 220 70% 50%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 220 70% 50%;
+    --ring: 221.2 83.2% 53.3%;
+ 
+    --radius: 0.5rem;
   }
-
+ 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
+ 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
+ 
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 220 70% 50%;
-    --primary-foreground: 210 40% 98%;
-
+ 
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
+ 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 220 70% 15%;
+ 
+    --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
+ 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
+ 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 220 70% 50%;
-
-    --sidebar-background: 220 70% 5%;
-    --sidebar-foreground: 220 70% 85%;
-    --sidebar-primary: 220 70% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 70% 15%;
-    --sidebar-accent-foreground: 220 70% 85%;
-    --sidebar-border: 220 70% 15%;
-    --sidebar-ring: 220 70% 50%;
+    --ring: 224.3 76.3% 48%;
   }
 }
-
+ 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground font-sans overflow-x-hidden;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
   }
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-medium tracking-tight;
-  }
-
-  .glass-card {
-    @apply bg-white/80 dark:bg-black/50 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-sm;
-  }
-
-  .hover-card {
-    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
-  }
-
+@layer components {
   .page-container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 animate-fade-in;
+    @apply p-6 max-w-7xl mx-auto w-full;
   }
-
+  
   .page-header {
     @apply mb-8;
   }
-
+  
   .page-title {
-    @apply text-3xl font-semibold mb-2;
+    @apply text-2xl font-bold tracking-tight;
+  }
+  
+  .page-description {
+    @apply text-muted-foreground mt-1;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm bg-opacity-50 border border-border;
+  }
+  
+  .hover-card {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-1 cursor-pointer;
   }
 
-  .page-description {
-    @apply text-muted-foreground;
+  .bg-subject-math {
+    @apply bg-blue-500;
+  }
+  
+  .bg-subject-science {
+    @apply bg-green-500;
+  }
+  
+  .bg-subject-history {
+    @apply bg-amber-500;
+  }
+  
+  .bg-subject-english {
+    @apply bg-purple-500;
+  }
+  
+  .bg-subject-art {
+    @apply bg-pink-500;
+  }
+  
+  .bg-subject-music {
+    @apply bg-indigo-500;
+  }
+  
+  .bg-subject-pe {
+    @apply bg-orange-500;
+  }
+  
+  .bg-subject-languages {
+    @apply bg-cyan-500;
+  }
+  
+  .bg-subject-cs {
+    @apply bg-emerald-500;
+  }
+  
+  .bg-subject-default {
+    @apply bg-gray-500;
   }
 }
